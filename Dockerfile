@@ -1,22 +1,15 @@
-# Dockerfile for MMM Django UI
 FROM python:3.11-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set work directory
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
+COPY . /app
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the project
-COPY . .
+# Set environment to production
+ENV DJANGO_SETTINGS_MODULE=mmm_ui.settings
 
-# Expose Django port
-EXPOSE 8001
+# Collect static files inside container
+RUN python manage.py collectstatic --noinput
 
-# Run server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
