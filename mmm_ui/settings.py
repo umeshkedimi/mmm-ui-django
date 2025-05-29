@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=^2@pb^5d6!xyig2rog$r4ki7j$%a^g#4!rpr0zs#!wtbs#-mw"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.managemindmoney.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
