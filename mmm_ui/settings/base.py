@@ -73,6 +73,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "main" / "static"]
 
+# This should only be used in production
+STATIC_ROOT = os.getenv("STATIC_ROOT", BASE_DIR / "staticfiles")
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
