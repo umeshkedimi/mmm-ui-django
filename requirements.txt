@@ -1,2 +1,4 @@
-Django>=4.2
-gunicorn
+asgiref==3.8.1
+Django==5.2.1
+python-dotenv==1.1.0
+sqlparse==0.5.3

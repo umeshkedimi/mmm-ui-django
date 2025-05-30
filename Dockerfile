@@ -4,12 +4,14 @@ WORKDIR /app
 
 COPY . /app
 
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set environment to production
-ENV DJANGO_SETTINGS_MODULE=mmm_ui.settings
+# Use prod settings by default inside container
+ENV DJANGO_SETTINGS_MODULE=mmm_ui.settings.prod
 
-# Collect static files inside container
+# Collect static files using prod settings
 RUN python manage.py collectstatic --noinput
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+# Run with Gunicorn for production
+CMD ["gunicorn", "mmm_ui.wsgi:application", "--bind", "0.0.0.0:8001"]
