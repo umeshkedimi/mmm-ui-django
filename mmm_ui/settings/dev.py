@@ -14,3 +14,5 @@ STATICFILES_DIRS = [BASE_DIR / "main" / "static"]
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-dev-key")
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
