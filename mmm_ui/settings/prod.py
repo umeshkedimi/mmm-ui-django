@@ -14,6 +14,8 @@ DATABASES = {
     }
 }
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = ["www.managemindmoney.com", "api.managemindmoney.com", "admin.managemindmoney.com"]
