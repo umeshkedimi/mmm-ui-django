@@ -18,6 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 header .logo {
@@ -25,14 +26,42 @@ header .logo {
     font-weight: bold;
 }
 
-header nav a {
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Hide menu toggle on desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Desktop menu */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
     color: #ffffff;
-    margin-left: 20px;
     text-decoration: none;
 }
 
-header nav a:hover {
+.menu a:hover {
     text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #0d1117;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
 }
 
 /* Main content */
@@ -69,10 +98,33 @@ main {
     left: 0;
 }
 
-/* Footer */
-footer {
-    background-color: #0d1117;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    body.menu-open .menu {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
 }
