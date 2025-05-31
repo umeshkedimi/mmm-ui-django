@@ -1,8 +1,13 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Global layout */
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f6f8;
     color: #333;
@@ -18,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* ✅ Required for small screens */
 }
 
 header .logo {
@@ -32,16 +37,7 @@ nav {
     gap: 20px;
 }
 
-/* Hide menu toggle on desktop */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: white;
-}
-
-/* Desktop menu */
+/* Navigation menu links */
 .menu {
     display: flex;
     gap: 20px;
@@ -56,12 +52,14 @@ nav {
     text-decoration: underline;
 }
 
-/* Footer */
-footer {
-    background-color: #0d1117;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
+/* Menu toggle icon */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: auto;
 }
 
 /* Main content */
@@ -98,6 +96,14 @@ main {
     left: 0;
 }
 
+/* Footer */
+footer {
+    background-color: #0d1117;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     header {
@@ -119,12 +125,16 @@ main {
         width: 100%;
     }
 
-    body.menu-open .menu {
-        display: flex;
+    .menu a {
+        display: block;
+        padding: 8px 0;
     }
 
     .menu-toggle {
         display: block;
-        margin-left: auto;
+    }
+
+    body.menu-open .menu {
+        display: flex;
     }
 }
