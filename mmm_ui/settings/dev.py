@@ -9,10 +9,10 @@ DATABASES = {
     }
 }
 
+# Static files in development
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "main" / "static"]
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-dev-key")
-
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"

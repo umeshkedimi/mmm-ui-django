@@ -1,6 +1,5 @@
 from .base import *
 
-
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 DATABASES = {
@@ -14,13 +13,10 @@ DATABASES = {
     }
 }
 
+# Static files in production
 STATIC_URL = "/static/"
-
-# This should only be used in production
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Used by collectstatic
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-
 ALLOWED_HOSTS = ["www.managemindmoney.com", "api.managemindmoney.com", "admin.managemindmoney.com"]
